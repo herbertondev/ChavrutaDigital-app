@@ -5,6 +5,7 @@ import { Progress } from './ui/progress';
 import { Badge } from './ui/badge';
 import { Avatar, AvatarFallback } from './ui/avatar';
 import { WeeklyCalendarWidget } from './WeeklyCalendarWidget';
+import logo from "figma:asset/95773810f63523410c6487f3f4c240162a00d6bb.png";
 import { 
   BookOpen, 
   Users, 
@@ -33,7 +34,7 @@ export function Dashboard({ onNavigate, onLogout }: DashboardProps) {
       <header className="bg-white border-b border-slate-200 sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
-            <BookOpen className="w-6 h-6 text-amber-600" />
+            <img src={logo} className="w-6 h-6 text-amber-600" />
             <span className="text-blue-950">Chavruta Digital</span>
           </div>
           <nav className="flex items-center gap-4">

@@ -5,6 +5,7 @@
 
   export default defineConfig({
     plugins: [react()],
+    base: '/ChavrutaDigital-app/',
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
@@ -18,6 +19,7 @@
         'lucide-react@0.487.0': 'lucide-react',
         'input-otp@1.4.2': 'input-otp',
         'figma:asset/ce6f517a94c8da975ac49a914db2458f36447aec.png': path.resolve(__dirname, './src/assets/ce6f517a94c8da975ac49a914db2458f36447aec.png'),
+        'figma:asset/95773810f63523410c6487f3f4c240162a00d6bb.png': path.resolve(__dirname, './src/assets/95773810f63523410c6487f3f4c240162a00d6bb.png'),
         'embla-carousel-react@8.6.0': 'embla-carousel-react',
         'cmdk@1.1.1': 'cmdk',
         'class-variance-authority@0.7.1': 'class-variance-authority',

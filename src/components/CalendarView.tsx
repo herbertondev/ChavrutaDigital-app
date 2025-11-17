@@ -3,9 +3,9 @@ import { Page } from "../App";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { Calendar as CalendarIcon, BookOpen, Users, Video, MessageCircle, ChevronLeft, ChevronRight, Clock, MapPin, List, Grid3x3 } from "lucide-react";
+import { Calendar as CalendarIcon, BookOpen, Users, Video, MessageCircle, ChevronLeft, ChevronRight, Clock, MapPin } from "lucide-react";
 import { Calendar } from "./ui/calendar";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
+import logo from "figma:asset/95773810f63523410c6487f3f4c240162a00d6bb.png";
 
 interface CalendarViewProps {
   onNavigate: (page: Page) => void;
@@ -103,7 +103,6 @@ const mockEvents: Event[] = [
 export function CalendarView({ onNavigate }: CalendarViewProps) {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [viewMode, setViewMode] = useState<"calendar" | "list">("calendar");
 
   // Função para pegar eventos de uma data específica
   const getEventsForDate = (date: Date) => {
@@ -192,9 +191,9 @@ export function CalendarView({ onNavigate }: CalendarViewProps) {
             >
               ← Voltar
             </Button>
-            <div className="flex items-center gap-2">
-              <CalendarIcon className="w-6 h-6 text-blue-600" />
-              <span className="text-blue-950">Meu Calendário</span>
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="Chavruta Digital" className="w-10 h-10" />
+              <span className="text-blue-950 text-lg">Chavruta Digital</span>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -230,16 +229,30 @@ export function CalendarView({ onNavigate }: CalendarViewProps) {
                 onSelect={setSelectedDate}
                 month={currentMonth}
                 onMonthChange={setCurrentMonth}
-                className="rounded-md border"
+                className="rounded-md border w-full"
+                classNames={{
+                  months: "flex flex-col w-full",
+                  month: "w-full space-y-4",
+                  caption: "flex justify-center pt-1 relative items-center",
+                  caption_label: "text-lg font-medium",
+                  nav: "space-x-1 flex items-center",
+                  table: "w-full border-collapse space-y-1",
+                  head_row: "flex w-full",
+                  head_cell: "text-slate-600 rounded-md w-full font-medium text-base text-center py-3",
+                  row: "flex w-full mt-2",
+                  cell: "text-center text-base p-0 relative flex-1",
+                  day: "h-14 w-full text-base p-0 font-normal hover:bg-blue-50 rounded-md transition-colors",
+                  day_selected: "bg-blue-600 text-white hover:bg-blue-700 hover:text-white focus:bg-blue-700 focus:text-white",
+                  day_today: "bg-amber-50 text-amber-900 font-semibold border-2 border-amber-400",
+                  day_outside: "text-slate-300",
+                  day_disabled: "text-slate-300 opacity-50",
+                }}
                 modifiers={{
                   hasEvent: (date) => daysWithEvents.includes(date.getDate()) && 
                     date.getMonth() === currentMonth.getMonth()
                 }}
-                modifiersStyles={{
-                  hasEvent: {
-                    backgroundColor: '#dbeafe',
-                    fontWeight: 'bold'
-                  }
+                modifiersClassNames={{
+                  hasEvent: "bg-blue-50 font-bold hover:bg-blue-100"
                 }}
               />
 

@@ -1,6 +1,7 @@
 
   {
-      "name": "Chavruta Digital Platform",
+      "homepage": "https://herbertondev.github.io/ChavrutaDigital-app",
+      "name": "Chavruta Digital app",
       "version": "0.1.0",
       "private": true,
       "dependencies": {
@@ -36,6 +37,7 @@
           "embla-carousel-react": "^8.6.0",
           "input-otp": "^1.4.2",
           "lucide-react": "^0.487.0",
+          "gh-pages": "^6.3.0",
           "next-themes": "^0.4.6",
           "react": "^18.3.1",
           "react-day-picker": "^8.10.1",
@@ -54,6 +56,8 @@
       },
       "scripts": {
           "dev": "vite",
-          "build": "vite build"
+          "build": "vite build",
+          "predeploy": "npm run build",
+          "deploy": "gh-pages -d dist"
       }
   }
